@@ -466,11 +466,18 @@ dir.create(paste(getwd(),"/", subDir, sep=""))
 #SET UP THE PARAMETER VALUES
 
 rate<-0.5001
+# 'rate' is the input parameter for the probability of the location of an offspring infection by distance.
+# It the value of sigma in a half-normal distribution
+# The mean of the half-normal distribution is given by sigma*(sqrt(2/pi))
+# The original publication erroneously described sigma as the mean, but this has been corrected
 probRecombination<-0.5001
 meanNumNewInfPerTimestepI<-0.0506
 meanNumNewInfPerTimestepW<-0.0485
 meanNumNewInfPerTimestepR1<-0.0462
 meanNumNewInfPerTimestepR2<-0.0414
+# These meanNumNewInfections give the mean number of new infections per current infection per time-step
+# They allow the number of infections to match the prevalence in Kilifi over time and are specific to the input distance. 
+
 
 # OBSERVED INFECTIONS
 setwd(getwd())
@@ -516,9 +523,10 @@ for(zz in 1:numChrPerInf){
 	
 dist_diff<-read.table("dist_diff.txt", header=TRUE, row.names=NULL)
 
-#rate<-4.0
+
+# 'rate' is an input parameter for distance (set above or read in)
 mu<-1/(2*(rate^2))
-dist_diff[,"prop"]<-exp(-mu*(dist_diff[,"dist.diff"]^2)) #the normal kernel
+dist_diff[,"prop"]<-exp(-mu*(dist_diff[,"dist.diff"]^2)) # the normal kernel
 
 num.homesteads<-1800
 

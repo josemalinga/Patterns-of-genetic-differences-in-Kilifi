@@ -44,7 +44,7 @@ getPairs<-function(simData) {
 }
 
 ########################################################################################################
-#read in the observed csv files and pair all observations by set
+# read in the observed csv files and pair all observations by set
 obs.data<-read.csv("obsData.csv", header=TRUE, row.names=NULL)
 
 # get paired observations
@@ -60,8 +60,8 @@ para_grid[,1]<-0.5001
 para_grid[,2]<-0.5001
 names(para_grid)[1:4]<-c("rateList", "recombList","logsum","ssesum")
 
-# read the simulated files by mean distance
-# THIS IS ONLY WHEN MEAN DISTANCE = 0.5KM
+# read the simulated files by either specific value for distance
+# THIS IS A SPECIFIC EXAMPLE ('rate' value of 0.5001)
 fileS<-list.files(path= paste0(getwd(), "/",sep=""), pattern='*rate0.5001*')
 fileS<-fileS[order(nchar(fileS), fileS)]
 
@@ -108,7 +108,8 @@ para_grid[y[1]==para_grid$rateList & y[4]==para_grid$recombList,3:4]<-c(logsum,s
 
 para_grid<-data.frame(para_grid)
 
-rate<-0.50
+#rate<-0.50
+
 fName<- paste0(getwd(),"/","SNPdiffs","_rate", rate, ".txt")
 write.table(obs.pairs,file=fName, row.names=FALSE)
 
