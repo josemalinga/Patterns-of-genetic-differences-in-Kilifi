@@ -8,4 +8,4 @@ The code runs a simulation model of <i>Plasmodium falciparum</i> malaria infecti
 
 "code index.docx" provides an index of the files. 
 
-There was an error in the orginal publication but this has now been corrected online and in the pdf. We erroneously stated that the mean of a half-normal distribution was sigma, but it is sigma*sqrt(2/pi). This lead to small changes throughout the manuscript. The parameter input to the model here is sigma, and the mean can be calculated afterwards. This does not lead to any changes in the conclusions of the manuscript.
+There was an error in the original publication but this has now been corrected online and in the pdf. We erroneously stated that the mean of a half-normal distribution was sigma, but it is sigma*sqrt(2/pi). This lead to small changes throughout the manuscript. The parameter input to the model here is sigma, and the mean can be calculated afterwards. This does not lead to any changes in the conclusions in the paper.
